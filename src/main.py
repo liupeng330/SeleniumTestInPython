@@ -3,6 +3,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
 from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
 from selenium.webdriver.common.by import By
+
 from Pages import *
 
 # Create a new instance of the Chrome driver
@@ -11,7 +12,7 @@ driver = webdriver.Chrome()
 login = SignIn.SignIn(driver)
 mainPage = MainPage.MainPage(driver)
 
-# Go to the cloud signin page
+# Go to the cloud sign in page
 print "Load sign in page"
 driver.get("https://cloud.real.com/account/auth")
 driver.maximize_window()
@@ -30,7 +31,8 @@ try:
     print "Click 'My Videos' tab"
     mainPage.ClickMyVideosTab()
     
-    print mainPage.GetMediaInfos()
+    print "Download a media"
+    mainPage.DownloadByName("Ggytgv")
     
 finally:
     pass
